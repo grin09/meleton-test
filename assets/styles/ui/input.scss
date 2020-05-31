@@ -1,0 +1,35 @@
+@import "../includes/settings";
+
+@media (min-width: 0) {
+  .input-component {
+    position: relative;
+    .field {
+      width: 100%;
+      height: 44px;
+      padding: 0 15px;
+      font-size: 14px;
+      outline: 0;
+      border: 1px solid $grey;
+      border-radius: 5px;
+      color: $black;
+      &:focus,
+      &.non-empty {
+        & + .caption {
+          font-size: 13px;
+          top: 0;
+        }
+      }
+    }
+    .caption {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translate(0, -50%);
+      color: $grey;
+      pointer-events: none;
+      font-size: 14px;
+      padding: 2px;
+      background-color: $white;
+    }
+  }
+}

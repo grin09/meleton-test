@@ -1,0 +1,65 @@
+@import "../includes/settings";
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 0;
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    width: 40px;
+    height: 40px;
+    margin: 0 7px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: $grey_light;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    &.active {
+      color: #fff;
+      background-color: $green;
+      pointer-events: none;
+    }
+    &:hover {
+      color: #fff;
+      background-color: $green;
+    }
+  }
+  &__separator {
+    width: 45px;
+    margin: 0 7px;
+    display: flex;
+    justify-content: center;
+    &__item {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: relative;
+      background-color: $grey_light;
+      &:before,
+      &:after {
+        content: "";
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        border-radius: inherit;
+        background-color: inherit;
+      }
+      &:before {
+        left: -17px;
+      }
+      &:after {
+        left: 17px;
+      }
+    }
+  }
+}

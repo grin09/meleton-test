@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Purchase title 1",
+    "price": "4076.08",
+    "datetime": 1590815515937
+  },
+  {
+    "id": 2,
+    "title": "Purchase title 2",
+    "price": "1985.71",
+    "datetime": 1590841952125
+  },
+  {
+    "id": 3,
+    "title": "Purchase title 3",
+    "price": "830.49",
+    "datetime": 1590835800874
+  },
+  {
+    "id": 4,
+    "title": "Purchase title 4",
+    "price": "917.00",
+    "datetime": 1590839723280
+  },
+  {
+    "id": 5,
+    "title": "Purchase title 5",
+    "price": "4789.62",
+    "datetime": 1590837906866
+  },
+  {
+    "id": 6,
+    "title": "Purchase title 6",
+    "price": "3860.00",
+    "datetime": 1590843415202
+  },
+  {
+    "id": 7,
+    "title": "Purchase title 7",
+    "price": "3608.07",
+    "datetime": 1590844283401
+  },
+  {
+    "id": 8,
+    "title": "Purchase title 8",
+    "price": "4688.08",
+    "datetime": 1590845845916
+  },
+  {
+    "id": 9,
+    "title": "Purchase title 9",
+    "price": "3447.46",
+    "datetime": 1590845398610
+  },
+  {
+    "id": 10,
+    "title": "Purchase title 10",
+    "price": "3019.47",
+    "datetime": 1590833608856
+  },
+  {
+    "id": 11,
+    "title": "Purchase title 11",
+    "price": "3886.04",
+    "datetime": 1590823158597
+  },
+  {
+    "id": 12,
+    "title": "Purchase title 12",
+    "price": "2776.54",
+    "datetime": 1590839957727
+  },
+  {
+    "id": 13,
+    "title": "Purchase title 13",
+    "price": "2263.15",
+    "datetime": 1590837221592
+  },
+  {
+    "id": 14,
+    "title": "Purchase title 14",
+    "price": "1386.58",
+    "datetime": 1590838669640
+  },
+  {
+    "id": 15,
+    "title": "Purchase title 15",
+    "price": "601.72",
+    "datetime": 1590837729666
+  },
+  {
+    "id": 16,
+    "title": "Purchase title 16",
+    "price": "1398.35",
+    "datetime": 1590834609016
+  },
+  {
+    "id": 17,
+    "title": "Purchase title 17",
+    "price": "3462.64",
+    "datetime": 1590822639504
+  },
+  {
+    "id": 18,
+    "title": "Purchase title 18",
+    "price": "4006.84",
+    "datetime": 1590830228738
+  },
+  {
+    "id": 19,
+    "title": "Purchase title 19",
+    "price": "4812.55",
+    "datetime": 1590835622851
+  },
+  {
+    "id": 20,
+    "title": "Purchase title 20",
+    "price": "1389.36",
+    "datetime": 1590835012234
+  }
+]

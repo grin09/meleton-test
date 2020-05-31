@@ -1,0 +1,12 @@
+@import "./includes/settings";
+
+@media (min-width: 0) {
+  .purchase-edit {
+    .input-component {
+      margin: 20px 0 0;
+    }
+    &__footer {
+      margin: 20px 0 0;
+    }
+  }
+}

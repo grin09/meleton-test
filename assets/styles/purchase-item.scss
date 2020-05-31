@@ -1,0 +1,41 @@
+@import "./includes/settings";
+
+@media (min-width: 0) {
+  .purchase-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0 0;
+    background-color: $white;
+    padding: 16px 18px;
+    border-radius: 5px;
+    box-shadow: $shadow_default;
+    color: $black;
+    line-height: 1.5;
+    .title {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: $black;
+    }
+    .date {
+      display: block;
+      font-size: 14px;
+    }
+    .price {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__box {
+      .button {
+        margin: 0 0 10px;
+      }
+      &.right {
+        text-align: right;
+      }
+    }
+  }
+}
