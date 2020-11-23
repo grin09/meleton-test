@@ -1,19 +1,14 @@
 <template>
   <div class="purchase-edit">
-    <h1>
-      <template v-if="id">Редактироватие</template>
-      <template v-else>Добавление</template>
-    </h1>
-    <Input
-      :val="item.title"
-      key-field="title"
-      @onChange="setField"
+    <h1>{{ pageTitle }}</h1>
+    <InputText
+      :value="item.title"
+      v-model="item.title"
       caption="title"
     />
-    <Input
-      :val="item.price"
-      key-field="price"
-      @onChange="setField"
+    <InputText
+      :value="item.price"
+      v-model="item.price"
       caption="price"
     />
     <div class="purchase-edit__footer">
@@ -29,10 +24,9 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-const Input = () => import("@/components/ui/Input");
+const InputText = () => import("@/components/ui/InputText");
 export default {
-  components: {
-    Input,
+  components: { Input, InputText
   },
   props: {
     id: Number,
@@ -49,6 +43,9 @@ export default {
     ...mapGetters({
       getListItem: "list/getListItem",
     }),
+    pageTitle() {
+      return this.id ? "Edit" : "Add"
+    }
   },
   methods: {
     ...mapMutations({

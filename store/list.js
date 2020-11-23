@@ -23,9 +23,11 @@ export const mutations = {
     state.list = payload;
   },
   removeItemById: (state, id) => {
-    state.list = state.list.filter((item) => {
-      return item.id != id;
-    });
+    if (confirm("Remove this course?")) {
+      state.list = state.list.filter((item) => {
+        return item.id != id;
+      });
+    }
   },
   saveItem: (state, payload) => {
     if (payload.id) {

@@ -20,18 +20,14 @@ export default {
     pageCount: Number,
     currentPage: Number,
   },
-  computed: {
-    ...mapGetters({
-      list: "list/getListPage",
-      sort_direction: "sorting/sort_direction",
-      sort_field: "sorting/sort_field",
-    }),
-  },
-  methods: {
-    ...mapMutations({
-      sortBy: "list/sortBy",
-    }),
-  },
+  computed: mapGetters({
+    list: "list/getListPage",
+    sort_direction: "sorting/sort_direction",
+    sort_field: "sorting/sort_field",
+  }),
+  methods: mapMutations({
+    sortBy: "list/sortBy",
+  }),
   mounted: function () {
     this.sortBy({ field: this.sort_field, direction: this.sort_direction });
   },

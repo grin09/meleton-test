@@ -3,8 +3,8 @@
     <input
       :type="type"
       :class="['field', { 'non-empty': value }]"
-      @change="change"
-      v-model="value"
+      :value="value"
+      @input="onChange"
     />
     <span class="caption">{{ caption }}</span>
   </div>
@@ -23,37 +23,15 @@ export default {
       type: String,
       required: false,
     },
-    val: {
+    value: {
       type: String,
       required: false,
     },
-    keyField: {
-      type: String,
-      required: false,
-    },
-  },
-  data: function () {
-    return {
-      value: "",
-    };
   },
   methods: {
-    change: function () {
-      this.$emit("onChange", {
-        value: this.value,
-        key: this.keyField,
-      });
-    },
-  },
-  watch: {
-    val: {
-      immediate: true,
-      handler: function () {
-        if (this.val) {
-          this.value = this.val;
-        }
-      },
-    },
+    onChange(e) {
+      this.$emit('input', e.target.value)
+    }
   },
 };
 </script>

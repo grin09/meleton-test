@@ -30,7 +30,7 @@ export default {
   data: function () {
     return {
       currentPage: 1,
-      pageCount: 2,
+      pageCount: 4,
       filterValue: "",
     };
   },
