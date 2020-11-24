@@ -2,7 +2,7 @@
   <div class="course-item">
     <div class="course-item__box">
       <nuxt-link
-        :to="{ name: 'list-id', params: { id: item.id } }"
+        :to="{ name: 'courses-id', params: { id: item.id } }"
         class="title"
       >
         {{ item.title }}
@@ -15,7 +15,7 @@
     </div>
     <div class="course-item__box right">
       <nuxt-link
-        :to="{ name: 'list-id-edit', params: { id: item.id } }"
+        :to="{ name: 'courses-id-edit', params: { id: item.id } }"
         class="button button--grey"
       >
         Edit

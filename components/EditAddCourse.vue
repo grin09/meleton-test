@@ -64,7 +64,7 @@ export default {
       saveItem: 'list/saveItem'
     }),
     cancelEditAdd () {
-      this.$nuxt.$router.push({ name: 'list' })
+      this.$nuxt.$router.push({ name: 'courses' })
     },
     save () {
       this.saveItem(this.item)

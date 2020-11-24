@@ -4,7 +4,7 @@ export default async function ({ isHMR, store, route, redirect }) {
   }
 
   if (route.name === 'index') {
-    redirect(301, { name: 'list' })
+    redirect(301, { name: 'courses' })
     return false
   }
 

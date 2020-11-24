@@ -8,13 +8,13 @@
     <strong class="price">{{ itemById.cost }} RUB</strong>
     <div class="course-view__footer">
       <nuxt-link
-        :to="{ name: 'list' }"
+        :to="{ name: 'courses' }"
         class="button button--grey"
       >
         Back
       </nuxt-link>
       <nuxt-link
-        :to="{ name: 'list-id-edit', params: { id: itemById.id } }"
+        :to="{ name: 'courses-id-edit', params: { id: itemById.id } }"
         class="button button--grey"
       >
         Edit
@@ -48,10 +48,10 @@ export default {
     }),
     deleteItem () {
       this.removeItem(this.id)
-      this.$nuxt.$router.push({ name: 'list' })
+      this.$nuxt.$router.push({ name: 'courses' })
     },
     redirectToList () {
-      this.$nuxt.$router.push({ name: 'list' })
+      this.$nuxt.$router.push({ name: 'courses' })
     }
   }
 

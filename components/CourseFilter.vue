@@ -1,7 +1,7 @@
 <template>
   <div class="course-filter">
     <div class="course-filter__field">
-      <nuxt-link :to="{ name: 'list-add' }" class="button button--green">
+      <nuxt-link :to="{ name: 'courses-add' }" class="button button--green">
         Add
       </nuxt-link>
     </div>
