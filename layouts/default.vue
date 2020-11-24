@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  middleware: ["default"],
-};
+  middleware: ['default']
+}
 </script>
 
 <style lang="scss" src="@/assets/styles/includes/common.scss"></style>

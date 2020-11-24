@@ -1,22 +1,22 @@
 <template>
   <div>
-    <EditAddPurchase :id="id" />
+    <EditAddCourse :id="id" />
   </div>
 </template>
 
 <script>
-const EditAddPurchase = () => import("@/components/EditAddPurchase");
+const EditAddCourse = () => import('@/components/EditAddCourse')
 export default {
   components: {
-    EditAddPurchase,
+    EditAddCourse
   },
-  data: function () {
+  data () {
     return {
-      id: 0,
-    };
+      id: 0
+    }
   },
-  created: function () {
-    this.id = parseInt(this.$nuxt.$route.params.id);
-  },
-};
+  created () {
+    this.id = parseInt(this.$nuxt.$route.params.id)
+  }
+}
 </script>

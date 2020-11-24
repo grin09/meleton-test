@@ -1,59 +1,56 @@
 <template>
-  <div class="pagination" v-show="isVisible">
+  <div v-show="isVisible" class="pagination">
     <div class="pagination__container">
       <template v-for="n in getPageQuantity">
         <span
           v-if="n === 1"
+          :key="n + 'left'"
           class="pagination__item"
           :class="{ active: n === currentPage }"
-          :key="n + 'left'"
           @click="setPage(n)"
-          >{{ n }}</span
-        >
+        >{{ n }}</span>
 
         <div
-          class="pagination__separator"
           v-if="currentPage > 3 && n === 1 && getPageQuantity > 6"
           :key="n + 'first_separator'"
+          class="pagination__separator"
         >
-          <span class="pagination__separator__item"></span>
+          <span class="pagination__separator__item" />
         </div>
 
         <span
-          class="pagination__item"
-          :class="{ active: n === currentPage }"
           v-if="
             (Math.abs(n - currentPage) <
               (currentPage !== 1 && currentPage !== getPageQuantity ? 2 : 3) ||
               getPageQuantity < 7) &&
-            n !== 1 &&
-            n !== getPageQuantity
+              n !== 1 &&
+              n !== getPageQuantity
           "
           :key="n + 'middle'"
+          class="pagination__item"
+          :class="{ active: n === currentPage }"
           @click="setPage(n)"
-          >{{ n }}</span
-        >
+        >{{ n }}</span>
 
         <div
-          class="pagination__separator"
           v-if="
             currentPage < getPageQuantity - 2 &&
-            n === getPageQuantity &&
-            getPageQuantity > 6
+              n === getPageQuantity &&
+              getPageQuantity > 6
           "
           :key="n + 'second_separator'"
+          class="pagination__separator"
         >
-          <span class="pagination__separator__item"></span>
+          <span class="pagination__separator__item" />
         </div>
 
         <span
           v-if="n == getPageQuantity"
+          :key="n + 'right'"
           class="pagination__item"
           :class="{ active: n === currentPage }"
-          :key="n + 'right'"
           @click="setPage(n)"
-          >{{ n }}</span
-        >
+        >{{ n }}</span>
       </template>
     </div>
   </div>
@@ -62,28 +59,40 @@
 <script>
 export default {
   props: {
-    pageCount: Number,
-    currentPage: Number,
-    totalRecords: [String, Number],
-  },
-  data: function () {
-    return {
-      isVisible: false,
-    };
-  },
-  methods: {
-    setPage: function (page) {
-      this.$emit("onPaginate", page);
+    pageCount: {
+      type: Number,
+      default: 4
     },
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    totalRecords: {
+      type: [String, Number],
+      default: 0
+    }
+  },
+  data () {
+    return {
+      isVisible: false
+    }
   },
   computed: {
-    getPageQuantity: function () {
-      this.isVisible = this.totalRecords > this.pageCount;
-
-      return Math.ceil(this.totalRecords / this.pageCount);
-    },
+    getPageQuantity () {
+      return Math.ceil(this.totalRecords / this.pageCount)
+    }
   },
-};
+  watch: {
+    isVisible () {
+      this.isVisible = this.totalRecords > this.pageCount
+    }
+  },
+  methods: {
+    setPage (page) {
+      this.$emit('onPaginate', page)
+    }
+  }
+}
 </script>
 
 <style lang="scss" src="@/assets/styles/ui/pagination.scss"></style>

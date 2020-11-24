@@ -1,43 +1,54 @@
 <template>
-  <div class="purchase-list">
-    <PurchaseFilter />
-    <PurchaseList :pageCount="pageCount" :currentPage="currentPage" />
+  <div class="course-list">
+    <CourseFilter @onPaginate="onPaginate" />
+    <CourseItem
+      v-for="item in list(pageCount, currentPage)"
+      :key="item.id"
+      :item="item"
+    />
     <Pagination
+      :page-count="pageCount"
+      :total-records="totalRecords"
+      :current-page="currentPage"
       @onPaginate="onPaginate"
-      :pageCount="pageCount"
-      :totalRecords="totalRecords"
-      :currentPage="currentPage"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-const PurchaseFilter = () => import("@/components/PurchaseFilter");
-const PurchaseList = () => import("@/components/PurchaseList");
-const Pagination = () => import("@/components/ui/Pagination");
+import { mapGetters, mapMutations } from 'vuex'
+const CourseFilter = () => import('@/components/CourseFilter')
+const CourseItem = () => import('@/components/CourseItem')
+const Pagination = () => import('@/components/ui/Pagination')
 export default {
   components: {
-    PurchaseFilter,
-    PurchaseList,
-    Pagination,
+    CourseFilter,
+    CourseItem,
+    Pagination
   },
-  computed: {
-    ...mapGetters({
-      totalRecords: "list/getListLength",
-    }),
-  },
-  data: function () {
+  data () {
     return {
       currentPage: 1,
       pageCount: 4,
-      filterValue: "",
-    };
+      filterValue: ''
+    }
+  },
+  computed: mapGetters({
+    list: 'list/getListPage',
+    sort_direction: 'sorting/sort_direction',
+    sort_field: 'sorting/sort_field',
+    totalRecords: 'list/getListLength'
+  }),
+  mounted () {
+    this.sortBy({ field: this.sort_field, direction: this.sort_direction })
   },
   methods: {
-    onPaginate: function (page) {
-      this.currentPage = page;
-    },
-  },
-};
+    ...mapMutations({
+      sortBy: 'list/sortBy'
+    }),
+    onPaginate (page) {
+      this.currentPage = page
+    }
+  }
+}
 </script>

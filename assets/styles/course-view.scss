@@ -1,14 +1,14 @@
 @import "./includes/settings";
 
 @media (min-width: 0) {
-  .purchase-view {
+  .course-view {
     width: 100%;
     color: $black;
     line-height: 1.5;
     .date {
       display: block;
       font-size: 14px;
-      margin: 20px 0;
+      margin: 0 0 10px;
     }
     .price {
       display: block;

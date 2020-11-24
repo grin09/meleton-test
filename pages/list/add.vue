@@ -1,12 +1,12 @@
 <template>
-  <div><EditAddPurchase /></div>
+  <div><EditAddCourse /></div>
 </template>
 
 <script>
-const EditAddPurchase = () => import("@/components/EditAddPurchase");
+const EditAddCourse = () => import('@/components/EditAddCourse')
 export default {
   components: {
-    EditAddPurchase,
-  },
-};
+    EditAddCourse
+  }
+}
 </script>

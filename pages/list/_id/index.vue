@@ -1,53 +1,61 @@
 <template>
-  <div class="purchase-view" v-if="itemById">
+  <div v-if="itemById" class="course-view">
     <h1>{{ itemById.title }}</h1>
-    <span class="date">{{ itemById.datetime }}</span>
-    <strong class="price">{{ itemById.price }} USD</strong>
-    <div class="purchase-view__footer">
-      <nuxt-link :to="{ name: 'list' }" class="button button--grey"
-        >Вернуться</nuxt-link
+    <span class="date">{{ itemById.created_at }}</span>
+    <div class="description">
+      {{ itemById.description }}
+    </div>
+    <strong class="price">{{ itemById.cost }} RUB</strong>
+    <div class="course-view__footer">
+      <nuxt-link
+        :to="{ name: 'list' }"
+        class="button button--grey"
       >
-      <button @click="deleteItem" class="button button--red">Удалить</button>
+        Back
+      </nuxt-link>
+      <nuxt-link
+        :to="{ name: 'list-id-edit', params: { id: itemById.id } }"
+        class="button button--grey"
+      >
+        Edit
+      </nuxt-link>
+      <button class="button button--red" @click="deleteItem">
+        Remove
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      getListItem: "list/getListItem",
+      getListItem: 'list/getListItem'
     }),
-    itemById: function () {
-      let item = { ...this.getListItem(this.id) };
-      if (!item.id) {
-        this.$nuxt.$router.push({ name: "list" });
-      }
-      item.datetime = `${new Date(
-        item.datetime
-      ).toLocaleDateString()} ${new Date(item.datetime).toLocaleTimeString()}`;
-      return item;
-    },
+    itemById () {
+      const item = { ...this.getListItem(this.id) }
+      if (!item.id) { this.redirectToList() }
+      return item
+    }
   },
-  data: function () {
-    return {
-      id: 0,
-    };
+  created () {
+    this.id = this.$nuxt.$route.params.id
   },
   methods: {
     ...mapMutations({
-      removeItem: "list/removeItemById",
+      removeItem: 'list/removeItemById'
     }),
-    deleteItem: function () {
-      this.removeItem(this.id);
-      this.$nuxt.$router.push({ name: "list" });
+    deleteItem () {
+      this.removeItem(this.id)
+      this.$nuxt.$router.push({ name: 'list' })
     },
-  },
-  created: function () {
-    this.id = this.$nuxt.$route.params.id;
-  },
-};
+    redirectToList () {
+      this.$nuxt.$router.push({ name: 'list' })
+    }
+  }
+
+}
 </script>
 
-<style lang="scss" src="@/assets/styles/purchase-view.scss"></style>
+<style lang="scss" src="@/assets/styles/course-view.scss"></style>
